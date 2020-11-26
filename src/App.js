@@ -27,30 +27,7 @@ class App extends Component {
     //console.log('myvalue: ' + myvalue);
     this.setState({ [myname]: myvalue });
 
-    /////////////////////
-    let weight = this.state.weight;
-    var height = this.state.height;
-    if (weight > 0 && height > 0) {
-      let finalBmi = weight / (height / 100 * height / 100);
-      let meaning = '';
 
-     // console.log("finalBmi: "+ finalBmi);
-
-      this.setState({ finalBmi: finalBmi });
-
-      if (finalBmi < 18.5) {
-        meaning = "That you are too thin."
-      }
-      if (finalBmi >= 18.5 && finalBmi < 25) {
-        meaning = "That you are healthy."
-      }
-      if (finalBmi >= 25) {
-        meaning = "That you have overweight."
-      }
-
-      this.setState({ meaning: meaning });
-    }
-/////////////////////
 
   }
 
