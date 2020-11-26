@@ -22,11 +22,35 @@ class App extends Component {
 
   changeHandler(event) {
     let myname = event.target.name;
-    console.log('myname: ' + myname);
+    //console.log('myname: ' + myname);
     let myvalue = event.target.value;
-    console.log('myvalue: ' + myvalue);
+    //console.log('myvalue: ' + myvalue);
     this.setState({ [myname]: myvalue });
 
+    /////////////////////
+    let weight = this.state.weight;
+    var height = this.state.height;
+    if (weight > 0 && height > 0) {
+      let finalBmi = weight / (height / 100 * height / 100);
+      let meaning = '';
+
+     // console.log("finalBmi: "+ finalBmi);
+
+      this.setState({ finalBmi: finalBmi });
+
+      if (finalBmi < 18.5) {
+        meaning = "That you are too thin."
+      }
+      if (finalBmi >= 18.5 && finalBmi < 25) {
+        meaning = "That you are healthy."
+      }
+      if (finalBmi >= 25) {
+        meaning = "That you have overweight."
+      }
+
+      this.setState({ meaning: meaning });
+    }
+/////////////////////
 
   }
 
@@ -37,15 +61,17 @@ class App extends Component {
       let finalBmi = weight / (height / 100 * height / 100);
       let meaning = '';
 
+     // console.log("finalBmi: "+ finalBmi);
+
       this.setState({ finalBmi: finalBmi });
 
       if (finalBmi < 18.5) {
         meaning = "That you are too thin."
       }
-      if (finalBmi > 18.5 && finalBmi < 25) {
+      if (finalBmi >= 18.5 && finalBmi < 25) {
         meaning = "That you are healthy."
       }
-      if (finalBmi > 25) {
+      if (finalBmi >= 25) {
         meaning = "That you have overweight."
       }
 
