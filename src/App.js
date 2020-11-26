@@ -26,9 +26,7 @@ class App extends Component {
     let myvalue = event.target.value;
     //console.log('myvalue: ' + myvalue);
     this.setState({ [myname]: myvalue });
-
-
-
+    
   }
 
   calculateBMI() {
